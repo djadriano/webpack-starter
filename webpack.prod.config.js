@@ -65,8 +65,14 @@ module.exports = {
    },
    plugins: [
       new webpack.HotModuleReplacementPlugin(),
+      new webpack.optimize.DedupePlugin(),
       new HtmlWebpackPlugin({
         template: './layouts/index.html'
+      }),
+      new webpack.optimize.UglifyJsPlugin({
+          compress: {
+              warnings: true
+          }
       })
    ]
 }
